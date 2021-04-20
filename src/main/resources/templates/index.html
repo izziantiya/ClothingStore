@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Одежда</title>
+    <link rel="shortcut icon" href="image/clothes.png" type="image/png">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <script src="src/js/click.js"></script>
+</head>
+<body>
+<!--шапка страницы-->
+<div class="header">
+    <!--главная надпись-->
+    <div class="header-text">
+        <a href="header.html">ClothingStore</a>
+    </div>
+    <!--меню-->
+    <div class="menu">
+        <div class="row">
+            <a href="menu.html">Меню</a>
+            <a href="stocks.html">Акции</a>
+            <a href="information.html">Информация</a>
+        </div>
+        <div class="menu-type">
+            <a href="#breakfast" class="type-1">Футболки</a>
+            <a href="#salad" class="type-2">Шорты</a>
+            <a href="#soup" class="type-3">Юбки</a>
+            <a href="#lunch" class="type-4">Платья</a>
+            <a href="#cake" class="type-5">Штаны</a>
+            <a href="#drink" class="type-6">Толстовки</a>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="content">
+        <div class="types" th:each="type : ${types}">
+        <h2 th:text="${type.name}"><p><a name="breakfast"></a></p></h2>
+        <div class="carts-type">
+            <a href="#">
+                <div class="cart">
+                    <div class="img-cart"><img src="image/1.jpg"></div>
+                    <p class="name">Футболка розовая "Mikan"</p>
+                    <p class="price">380 руб</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="cart">
+                    <div class="img-cart"><img src="image/2.jpg"></div>
+                    <p class="name">Футболка "Сейлор Мун"</p>
+                    <p class="price">300 руб</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="cart">
+                    <div class="img-cart"><img src="image/3.jpg"></div>
+                    <p class="name">Футболка черная "Milky"</p>
+                    <p class="price">450 руб</p>
+                </div>
+            </a>
+        </div>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="src/img/vk-social-logotype.png" alt="vk">
+        <img src="src/img/instagram.png" alt="instagramm">
+        <img src="src/img/facebook.png" alt="facebook"> <br>
+        <span>2021</span>
+    </div>
+</div>
+</body>
+</html>

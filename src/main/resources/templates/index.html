@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Одежда</title>
-    <link rel="shortcut icon" href="image/clothes.png" type="image/png">
+    <link rel="shortcut icon" href="image/cloth.png" type="image/png">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/menu.css">
-    <script src="src/js/click.js"></script>
 </head>
 <body>
 <!--шапка страницы-->
 <div class="header">
     <!--главная надпись-->
     <div class="header-text">
-        <a href="header.html">ClothingStore</a>
+        <a href="/">ClothingStore</a>
     </div>
     <!--меню-->
     <div class="menu">
@@ -23,49 +22,27 @@
             <a href="stocks.html">Акции</a>
             <a href="information.html">Информация</a>
         </div>
-        <div class="menu-type">
-            <a href="#breakfast" class="type-1">Футболки</a>
-            <a href="#salad" class="type-2">Шорты</a>
-            <a href="#soup" class="type-3">Юбки</a>
-            <a href="#lunch" class="type-4">Платья</a>
-            <a href="#cake" class="type-5">Штаны</a>
-            <a href="#drink" class="type-6">Толстовки</a>
-        </div>
     </div>
 </div>
 <div class="wrapper">
     <div class="content">
-        <div class="types" th:each="type : ${types}">
-        <h2 th:text="${type.name}"><p><a name="breakfast"></a></p></h2>
-        <div class="carts-type">
-            <a href="#">
+        <div class="types" th:each="element : ${map}">
+        <h2 th:text="${element.key.name}"></h2>
+        <div class="carts-type" >
+            <a href="#" th:each="product : ${element.value}">
                 <div class="cart">
-                    <div class="img-cart"><img src="image/1.jpg"></div>
-                    <p class="name">Футболка розовая "Mikan"</p>
-                    <p class="price">380 руб</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="cart">
-                    <div class="img-cart"><img src="image/2.jpg"></div>
-                    <p class="name">Футболка "Сейлор Мун"</p>
-                    <p class="price">300 руб</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="cart">
-                    <div class="img-cart"><img src="image/3.jpg"></div>
-                    <p class="name">Футболка черная "Milky"</p>
-                    <p class="price">450 руб</p>
+                    <div class="img-cart"><img th:src="@{'/image/'} + ${product.image}"></div>
+                    <p class="name" th:text="${product.name}"></p>
+                    <p class="price" th:text="${product.price} + ' руб'"></p>
                 </div>
             </a>
         </div>
         </div>
     </div>
     <div class="footer">
-        <img src="src/img/vk-social-logotype.png" alt="vk">
-        <img src="src/img/instagram.png" alt="instagramm">
-        <img src="src/img/facebook.png" alt="facebook"> <br>
+        <img src="image/vk-social-logotype.png" alt="vk">
+        <img src="image/instagram.png" alt="instagramm">
+        <img src="image/facebook.png" alt="facebook"> <br>
         <span>2021</span>
     </div>
 </div>

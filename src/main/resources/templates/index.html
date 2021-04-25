@@ -29,7 +29,7 @@
         <div class="types" th:each="element : ${map}">
         <h2 th:text="${element.key.name}"></h2>
         <div class="carts-type" >
-            <a href="#" th:each="product : ${element.value}">
+            <a th:each="product : ${element.value}" th:href="${product.id}">
                 <div class="cart">
                     <div class="img-cart"><img th:src="@{'/image/'} + ${product.image}"></div>
                     <p class="name" th:text="${product.name}"></p>

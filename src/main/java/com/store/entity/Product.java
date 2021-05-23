@@ -22,6 +22,12 @@ public class Product {
     @Column(length = 3000, name = "description")
     private String description;
 
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "material")
+    private String material;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
@@ -75,5 +81,21 @@ public class Product {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
     }
 }

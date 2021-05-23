@@ -2,31 +2,29 @@ package com.store.controller;
 
 import com.store.entity.Product;
 import com.store.entity.ProductType;
-import com.store.repository.ProductRepository;
-import com.store.repository.ProductTypeRepository;
+import com.store.service.ProductService;
+import com.store.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class DefaultController {
 
     @Autowired
-    ProductTypeRepository productTypeRepository;
+    ProductTypeService productTypeService;
 
     @Autowired
-    ProductRepository productRepository;
+    ProductService productService;
 
     @GetMapping("/")
     public String index(Model model) {
-        Iterable<ProductType> types = productTypeRepository.findAll();
-        Map<ProductType, List<Product>> map = new HashMap<>();
-        types.forEach(type -> map.put(type, productRepository.findByProductType(type)));
+        Iterable<ProductType> types = productTypeService.getAll();
+        Map<ProductType, List<Product>> map = new LinkedHashMap<>();
+        types.forEach(type -> map.put(type, productService.getType(type)));
         model.addAttribute("map", map);
         return "index";
     }

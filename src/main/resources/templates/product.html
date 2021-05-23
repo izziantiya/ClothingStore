@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Сырники</title>
+    <title th:text="${product.name}"></title>
     <link rel="shortcut icon" href="image/cloth.png" type="image/png">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/product.css">
@@ -26,31 +26,28 @@
 </div>
 <div class="wrapper">
     <div class="content">
-        <h2>Футболка с кайфом</h2>
+        <h2 th:text="${product.name}"></h2>
         <div class="info">
             <div class="one">
-                <img class="img-head" src="image/1.jpg" alt="">
+                <img class="img-head" th:src="@{'/image/' + ${product.image}}"  alt="">
             </div>
             <div class="two">
                 <p class="label">Характеристики</p>
-                <li><span class="title">Страна</span><span class="head">Китай</span></li>
-                <li><span class="title">Материал</span><span class="head">Полиэстер</span></li>
+                <li><span class="title">Страна</span><span class="head" th:text="${product.country}"></span></li>
+                <li><span class="title">Материал</span><span class="head" th:text="${product.material}"></span></li>
                 <p class="margin label">Цена</p>
-                <span class="info-label">433875</span>
+                <span class="info-label" id="bold" th:text="${product.price} + ' руб'"></span>
             </div>
             <div class="three">
                 <p class="label">Описание</p>
-                <span class="info-label">Творог 9% (молоко пастеризованное, закваска), творожный сыр cremette
-                    (творог, загуститель крахмал кукурузный, соль, стабилизаторы камедь рожкового дерева и гуаровая
-                    камедь, регулятор кислотности лимонная кислота, вода питьевая), мука пшеничная, яичный меланж
-                    пастеризованный, соль, сахар, бельгийский черный шоколад.</span>
+                <span class="info-label" th:text="${product.description}"></span>
             </div>
         </div>
         <div class="btn-back"><a href="#"><span>Добавить в корзину</span></a></div>
     </div>
     <div class="footer">
         <img src="image/vk-social-logotype.png" alt="vk">
-        <img src="image/instagram.png" alt="instagramm">
+        <img src="image/instagram.png" alt="instagram">
         <img src="image/facebook.png" alt="facebook"> <br>
         <span>2020</span>
     </div>

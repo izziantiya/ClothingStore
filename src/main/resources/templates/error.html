@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Ошибка</title>
+    <link rel="shortcut icon" href="image/cloth.png" type="image/png">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/error.css">
+</head>
+<body>
+<div class="header">
+    <!--главная надпись-->
+    <div class="header-text">
+        <a href="/">ClothingStore</a>
+    </div>
+    <!--меню-->
+    <div class="menu">
+        <div class="row">
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
+            <a href="profile/cart-product"><img src="image/cart.png"></a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <p>Страница не найдена</p>
+    <img src="image/cat.jpg" alt="">
+</div>
+</body>
+</html>

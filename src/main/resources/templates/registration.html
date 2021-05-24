@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
@@ -16,13 +16,14 @@
     <!--меню-->
     <div class="menu">
         <div class="row">
-            <a href="/login"><img src="image/login.png"></a>
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
             <a href="profile/cart-product"><img src="image/cart.png"></a>
         </div>
     </div>
 </div>
 <div style="color: red" th:text="${error}"></div>
-<form th:action="@{/registration}" th:method="post" th:object="${user}">
+<form id="form" th:action="@{/registration}" th:method="post" th:object="${user}">
     <div id="column-1" class="column">
         <img src="image/userse.png" height="100" width="100">
         <h2>Регистрация</h2>

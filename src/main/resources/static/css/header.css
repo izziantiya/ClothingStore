@@ -38,13 +38,16 @@ body {box-sizing: border-box;}
     top: 50%;
     transform: translateY(-50%);
 }
+form {
+    display: inline;
+}
 
 /*стилизация ссылок шапки*/
 .header-text a, .row a, .list a {
     text-decoration: none;
 }
 
-.row a img {
+.row a img, #lout img {
     margin: 0 2rem;
     width: 5rem;
     height: 5rem;

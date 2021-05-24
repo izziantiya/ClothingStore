@@ -2,6 +2,7 @@ package com.store.controller;
 
 import com.store.entity.Product;
 import com.store.entity.ProductType;
+import com.store.entity.User;
 import com.store.service.ProductService;
 import com.store.service.ProductTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
 import java.util.*;
 
 @Controller
@@ -32,5 +34,10 @@ public class DefaultController {
     @GetMapping("login")
     public String login() {
         return "login";
+    }
+
+    @GetMapping("/error")
+    public String error(Model model) {
+        return "error";
     }
 }

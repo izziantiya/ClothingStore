@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,8 @@
     <!--меню-->
     <div class="menu">
         <div class="row">
-            <a href="/login"><img src="image/login.png"></a>
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
             <a href="profile/cart-product"><img src="image/cart.png"></a>
         </div>
     </div>

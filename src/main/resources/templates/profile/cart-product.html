@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Корзина</title>
   <link rel="shortcut icon" href="../image/cloth.png" type="image/png">
   <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
 <div class="header">
@@ -16,38 +18,33 @@
   <!--меню-->
   <div class="menu">
     <div class="row">
-      <a href="/login"><img src="../image/login.png"></a>
+      <a sec:authorize="isAnonymous()" href="/login"><img src="../image/login.png"></a>
+      <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="../image/log-out.png"></a>
       <a href="profile/cart-product"><img src="../image/cart.png"></a>
-      <a href="/logout"><img src="../image/log-out.png"></a>
     </div>
   </div>
 </div>
+<h1  class="cart">Корзина</h1>
 <div class="container">
-  <h1  class="display-4 my-3">Your cart</h1>
-  <div class="row">
-    <ul class="list-group col-9">
-      <li class="list-group-item d-flex justify-content-around">
-        <span class="my-auto h6">Product image</span>
-        <span class="my-auto h6">Product</span>
-        <span class="my-auto h6">Price</span>
-      </li>
-    </ul>
-    <ul class="list-group col-9" th:each="product : ${user.productList}">
-      <li class="list-group-item d-flex justify-content-around">
-        <img th:src="@{'/image/' + ${product.image}}" height="100">
-        <span class="my-auto" th:text="${product.name}"></span>
-        <span class="my-auto" th:text="${product.price} + ' руб'"></span>
-      </li>
-    </ul>
-    <ul class="list-group col-9">
-      <li class="list-group-item d-flex justify-content-end">
-        <span class="h6" th:text="'Total :  '+ ${total} + '  руб'"></span>
-      </li>
-      <li class="list-group-item d-flex justify-content-end">
-        <a href="#" type="button" class="btn btn-primary">Check out</a>
-      </li>
-    </ul>
+  <div class="rowrow" th:each="product : ${user.productList}">
+    <div class="list-group">
+      <span class="a">Product image</span>
+      <img th:src="@{'/image/' + ${product.image}}" height="100">
+    </div>
+    <br>
+    <div class="list-group">
+      <span class="a">Product</span>
+      <span class="b" th:text="${product.name}"></span>
+    </div>
+    <div class="list-group">
+      <span class="a">Price</span>
+      <span class="b" th:text="${product.price} + ' руб'"></span>
+    </div>
   </div>
+</div>
+<div class="all">
+  <span class="a" th:text="'Всего:  '+ ${total} + '  руб'"></span>
+  <input style="margin-left: 2rem" type="submit" class="btn" value="Перейти к оплате">
 </div>
 </body>
 </html>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>Вход в аккаунт</title>
+    <link rel="shortcut icon" href="image/cloth.png" type="image/png">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style2.css">
 </head>
@@ -15,17 +17,18 @@
     <!--меню-->
     <div class="menu">
         <div class="row">
-            <a href="/login"><img src="image/login.png"></a>
+            <a sec:authorize="isAnonymous()" href="/login"><img src="image/login.png"></a>
+            <a id="lout" sec:authorize="isAuthenticated()" href="/logout"><img src="image/log-out.png"></a>
             <a href="profile/cart-product"><img src="image/cart.png"></a>
         </div>
     </div>
 </div>
-<form th:action="@{/login}" method="post">
+<form id="form" th:action="@{/login}" method="post">
         <div id="column-1" class="column">
         <img src="image/userse.png" height="100" width="100">
         <h2>Вход</h2>
         <img src="image/play.png" height="50" width="50">
-    </div>
+        </div>
         <div id="column-2" class="column">
             <br>
             <div><label> Логин: <input type="text" class="input" name="username"/> </label></div>

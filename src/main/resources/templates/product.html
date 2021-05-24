@@ -43,7 +43,7 @@
                 <span class="info-label" th:text="${product.description}"></span>
             </div>
         </div>
-        <div class="btn-back"><a href="/cart"><span>Добавить в корзину</span></a></div>
+        <div class="btn-back"><a th:href="'addToCart/' + ${product.id}"><span>Добавить в корзину</span></a></div>
     </div>
     <div class="footer">
         <img src="image/vk-social-logotype.png" alt="vk">

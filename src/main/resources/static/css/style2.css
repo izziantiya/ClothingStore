@@ -1,0 +1,70 @@
+h2 {
+	font-family: fantasy;
+	}
+
+h1 {
+	text-align: center;
+	padding: 10%;
+	font-family: solid;
+}
+
+body {
+	background-color: #FFC0CB;
+}
+
+label {
+	font-family: fantasy;
+	font-size: 20px;
+}
+form {
+	display: flex;
+	flex-direction: row;
+}
+
+#column-2 {
+	align-self: center;
+	width: 700px;
+	height: 250px;
+	background-color: #F7819F;
+	border: double #FA5882;
+	border-width: 10px 10px 10px 0;
+	border-radius: 0 20px 20px 0;
+	margin: 150px 40px 0 0;
+	padding: 0 0 0 20px;
+}
+
+#column-1 {
+	align-self: center;
+	text-align: center;
+	width: 400px;
+	height: 250px;
+	background-color: #A9BCF5;
+	margin: 150px 0 0 150px;
+	border: double #5882FA;
+	border-width: 10px 0 10px 10px;
+	border-radius: 20px 0 0 20px;
+}
+
+.input {
+	border-radius: 5px;
+	background-color: #F6CED8;
+	border: solid #F5A9BC;
+	font-size: 20px;
+}
+
+.submit {
+	display: inline-block;
+	font-family: fantasy;
+	background-color: #FA5882;
+	padding: 8px;
+	margin: 20px 0 0 70%;
+	border: 3px solid #5882FA;
+	font-size: 16px;
+}
+
+#reg {
+	text-decoration: none;
+	color: black;
+}
+
+

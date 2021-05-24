@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
+<div class="header">
+    <!--главная надпись-->
+    <div class="header-text">
+        <a href="/">ClothingStore</a>
+    </div>
+    <!--меню-->
+    <div class="menu">
+        <div class="row">
+            <a href="/login"><img src="image/login.png"></a>
+            <a href="stocks.html">Акции</a>
+            <a href="information.html">Информация</a>
+        </div>
+    </div>
+</div>
 <div style="color: red" th:text="${error}"></div>
 <form th:action="@{/registration}" th:method="post" th:object="${user}">
-    <div><label> Логин: <input type="text" th:field="*{username}"/> </label></div>
-    <div><label> Пароль: <input type="password" th:field="*{password}"> </label></div>
-    <div><input type="submit" value="Регистрация"/></div>
+    <div id="column-1" class="column">
+        <img src="image/userse.png" height="100" width="100">
+        <h2>Регистрация</h2>
+        <img src="image/play.png" height="50" width="50">
+    </div>
+    <div id="column-2" class="column">
+        <br>
+        <div><label> Логин: <input type="text" class="input" name="username" th:field="*{username}"/> </label></div>
+        <br>
+        <div><label> Пароль: <input type="password" class="input" name="password" th:field="*{password}"/> </label></div>
+        <div><input  class="submit" type="submit" value="Регистрация"/></div>
+        <a id="reg" class="submit" href="/login">Войти</a>
+    </div>
 </form>
-<a href="/login">Войти</a>
 </body>
 </html>

@@ -22,9 +22,9 @@ public class CartController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("cart-product")
+    @GetMapping("profile/cart-product")
     public ModelAndView cartProduct(Principal principal) {
-        ModelAndView mv = new ModelAndView("cart-product");
+        ModelAndView mv = new ModelAndView("profile/cart-product");
         User user = userService.getUser(principal.getName());
         mv.addObject("user", user);
         int total = findSum(user);
@@ -42,8 +42,8 @@ public class CartController {
     }
 
     @GetMapping("addToCart/{id}")
-    public ModelAndView addToCart(@PathVariable("id")Long productId, Principal principal) {
-        ModelAndView mv = new ModelAndView("cart-product");
+    public String addToCart(@PathVariable("id")Long productId, Principal principal) {
+        ModelAndView mv = new ModelAndView("profile/cart-product");
         User user = userService.getUser(principal.getName());
         Product product = productService.getById(productId).get();
 
@@ -63,6 +63,6 @@ public class CartController {
 
         mv.addObject("user", user);
 
-        return mv;
+        return "redirect:/{id}";
     }
 }

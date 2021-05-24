@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина</title>
+  <link rel="shortcut icon" href="../image/cloth.png" type="image/png">
+  <link rel="stylesheet" href="../css/header.css">
 </head>
 <body>
-
+<div class="header">
+  <!--главная надпись-->
+  <div class="header-text">
+    <a href="/">ClothingStore</a>
+  </div>
+  <!--меню-->
+  <div class="menu">
+    <div class="row">
+      <a href="/login"><img src="../image/login.png"></a>
+      <a href="profile/cart-product"><img src="../image/cart.png"></a>
+      <a href="/logout"><img src="../image/log-out.png"></a>
+    </div>
+  </div>
+</div>
 <div class="container">
   <h1  class="display-4 my-3">Your cart</h1>
   <div class="row">
@@ -23,7 +41,7 @@
     </ul>
     <ul class="list-group col-9">
       <li class="list-group-item d-flex justify-content-end">
-        <span class="h6" th:text="'Total : $ '+ ${total}"></span>
+        <span class="h6" th:text="'Total :  '+ ${total} + '  руб'"></span>
       </li>
       <li class="list-group-item d-flex justify-content-end">
         <a href="#" type="button" class="btn btn-primary">Check out</a>

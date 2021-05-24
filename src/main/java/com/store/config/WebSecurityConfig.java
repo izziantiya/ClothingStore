@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/{id}", "/registration", "/image/**", "/css/**", "/fonts/**").permitAll()
-                .antMatchers("/cart").authenticated()
+                .antMatchers("/addToCart/{id}", "/profile/**").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")

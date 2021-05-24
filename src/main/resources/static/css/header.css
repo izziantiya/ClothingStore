@@ -45,6 +45,7 @@ body {box-sizing: border-box;}
 }
 
 .row a img {
+    margin: 0 2rem;
     width: 5rem;
     height: 5rem;
 }

@@ -28,4 +28,9 @@ public class DefaultController {
         model.addAttribute("map", map);
         return "index";
     }
+
+    @GetMapping("login")
+    public String login() {
+        return "login";
+    }
 }
